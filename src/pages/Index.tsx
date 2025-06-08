@@ -8,8 +8,8 @@ import SearchBar from '@/components/SearchBar';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
-const API_KEY = '4d5c8c8f7f5a4c5aa35b8c5a8f5c8c8f'; // Placeholder - usuários precisarão usar sua própria chave
-
+// const API_KEY = '4d5c8c8f7f5a4c5aa35b8c5a8f5c8c8f'; // Placeholder - usuários precisarão usar sua própria chave
+const API_KEY = 'ea39b050133947ec8b1fd73034f7685b';
 interface Article {
   title: string;
   description: string;
@@ -29,6 +29,7 @@ const fetchNews = async (category: string, searchQuery: string): Promise<Article
   
   if (searchQuery) {
     url = `${baseUrl}/everything?q=${encodeURIComponent(searchQuery)}&apiKey=${API_KEY}&language=pt&sortBy=publishedAt&pageSize=20`;
+    console.log(url)
   } else {
     url = `${baseUrl}/top-headlines?category=${category}&apiKey=${API_KEY}&language=pt&pageSize=20`;
   }
